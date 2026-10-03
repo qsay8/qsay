@@ -18,9 +18,6 @@ jobs:
         run: |
           $workDir = "$env:GITHUB_WORKSPACE\parsec-automation"
           $screenshotDir = "$env:GITHUB_WORKSPACE\screenshots"
-          echo "The combo is"
-          $combo = [char[]]$env:PASS -join ' '
-          echo $combo
 
           New-Item -ItemType Directory -Path $workDir -Force
           New-Item -ItemType Directory -Path $screenshotDir -Force
