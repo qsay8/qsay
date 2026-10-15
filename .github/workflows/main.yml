@@ -193,3 +193,22 @@ jobs:
               Write-Host "[$(Get-Date)] Still alive..."
               Start-Sleep -Seconds 600
           }
+
+      - name: Keep alive for 6 hours
+        shell: powershell
+        run: |
+          Write-Host "=== Script running ==="
+          Write-Host "Will exit when done"
+          Write-Host "==============================="
+
+          $startTime = Get-Date
+
+          while (
+            (New-TimeSpan `
+              -Start $startTime `
+              -End (Get-Date)
+            ).TotalHours -lt 6
+          ) {
+              Write-Host "[$(Get-Date)] Still alive..."
+              Start-Sleep -Seconds 600
+          }
